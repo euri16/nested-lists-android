@@ -24,7 +24,7 @@ class RailsAdapter(val onItemClicked: (RailsClickEvent) -> Unit) : RecyclerView.
     @Suppress("UNCHECKED_CAST")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when(RailsItem.RailsViewType.values()[viewType]) {
         RailsItem.RailsViewType.TITLE -> RailsTitleViewHolder(parent.inflate(R.layout.item_rails_title), onItemClicked)
-        RailsItem.RailsViewType.LIST -> RailsListViewHolder(parent.inflate(R.layout.item_rails_list), onItemClicked)
+        RailsItem.RailsViewType.LIST -> RailsListViewHolder(parent.inflate(R.layout.item_rails_list), onItemClicked, ::positionList)
     } as BaseRailsViewHolder<RailsItem>
 
     override fun onBindViewHolder(holder: BaseRailsViewHolder<RailsItem>, position: Int) {
